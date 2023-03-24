@@ -15,7 +15,7 @@ export default async function handler(
     return res.status(400).json({ error: 'Missing priceId' })
   }
 
-  const successUrl = `${process.env.NEXT_URL}/success`
+  const successUrl = `${process.env.NEXT_URL}/success?session={CHECKOUT_SESSION_ID}`
   const cancelUrl = `${process.env.NEXT_URL}/`
 
   const checkoutSession = await stripe.checkout.sessions.create({
